@@ -1,4 +1,11 @@
-// Assignment Code
+function myNumAdder(){
+    return 1+2
+}
+
+
+myNumAdder()
+
+function generatePassword(){
 var generateBtn = document.querySelector("#generate");
 var upercase = [
     'A',
@@ -63,16 +70,51 @@ var upercase = [
     '_',
     '.',
   ];
-  
+  return "generateBtn";}
    
+
+// function writePassword() {
+//     alert("")
+
+// generateBtn.addEventListener("click", writePassword);
+var numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+
+function getPasswordCriteria() {
+  var userChoseNumbers = confirm("Do you want numbers in your password?");
+  var options = {
+    userChoseNumbers: userChoseNumbers
+  };
+  return options;
+}
+
+function createRandom(length) {
+  var randomNum = Math.floor(Math.random() * length);
+  return randomNum;
+}
+
+function generatePassword() {
+    var userChose = getPasswordCriteria();
+    var availableChars = [];
+    var passwordArr = [];
+    if(userChose.userChoseNumbers) {
+      availableChars = availableChars.concat(numbers);
+    }
+
+    for(var i = 0; i < 129; i++) {
+      passwordArr.push(availableChars[createRandom(availableChars.length)])
+    }
+
+
+  return passwordArr.join("")
+}
+
 
 // Write password to the #password input
 function writePassword() {
-    alert("I just got clicked")
-//   var password = generatePassword();
-//   var passwordText = document.querySelector("#password");
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
 
-//   passwordText.value = password;
+  passwordText.value = password;
 
 }
 
